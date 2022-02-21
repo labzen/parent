@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>cn.labzen</groupId>
+  <artifactId>parent</artifactId>
+  <packaging>pom</packaging>
+  <version>11.0-SNAPSHOT</version>
+  <name>${organization.name}.ROOT</name>
+  <description>Labzen PARENT POM（11版本对应JDK 11）</description>
+
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <organization>
+    <name>${organization.name}</name>
+    <url>${organization.url}</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <name>Dean Zhao</name>
+      <email>rcarlosdasilva@163.com</email>
+      <timezone>+8</timezone>
+    </developer>
+  </developers>
+
+  <scm>
+    <url>https://github.com/labzen/parent</url>
+    <connection>scm:git@github.com:labzen/parent.git</connection>
+    <developerConnection>scm:git@github.com:labzen/parent.git</developerConnection>
+    <tag>V${project.version}</tag>
+  </scm>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <organization.name>Labzen</organization.name>
+    <organization.url>http://labzen.cn</organization.url>
+
+    <java.version>11</java.version>
+    <kotlin.version>1.6.10</kotlin.version>
+
+    <dependencies.version>1.0-SNAPSHOT</dependencies.version>
+
+    <plugin.compile.version>3.8.1</plugin.compile.version>
+    <plugin.jar.version>3.2.0</plugin.jar.version>
+    <plugin.war.version>3.3.2</plugin.war.version>
+    <plugin.release.version>3.0.0-M4</plugin.release.version>
+    <plugin.deploy.version>3.0.0-M1</plugin.deploy.version>
+    <plugin.clean.version>3.1.0</plugin.clean.version>
+    <plugin.install.version>3.0.0-M1</plugin.install.version>
+    <plugin.resources.version>3.2.0</plugin.resources.version>
+    <plugin.dependency.version>3.2.0</plugin.dependency.version>
+    <plugin.source.version>3.2.1</plugin.source.version>
+    <plugin.javadoc.version>3.3.1</plugin.javadoc.version>
+    <plugin.surefire.version>3.0.0-M5</plugin.surefire.version>
+    <plugin.enforcer.version>3.0.0</plugin.enforcer.version>
+    <plugin.failsafe.version>3.0.0-M5</plugin.failsafe.version>
+    <plugin.shade.version>3.2.4</plugin.shade.version>
+    <plugin.assembly.version>3.3.0</plugin.assembly.version>
+    <plugin.spring.boot.version>2.1.3.RELEASE</plugin.spring.boot.version>
+    <plugin.javafx.version>0.0.8</plugin.javafx.version>
+    <plugin.plugin.version>3.6.2</plugin.plugin.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>cn.labzen</groupId>
+        <artifactId>dependencies</artifactId>
+        <version>${dependencies.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+    <!-- 软件缺陷检测注解 -->
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>jsr305</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-library</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.openjdk.jmh</groupId>
+      <artifactId>jmh-generator-annprocess</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>${basedir}/src/main/resources</directory>
+        <includes>
+          <include>META-INF/**/*.*</include>
+          <include>**/*.xml</include>
+          <include>**/*.xsd</include>
+          <include>**/*.yml</include>
+          <include>**/*.fxml</include>
+          <include>**/*.properties</include>
+          <include>**/*.sql</include>
+          <include>**/*.md</include>
+          <include>**/*.txt</include>
+          <include>**/*.js</include>
+          <include>**/*.css</include>
+          <include>**/*.json</include>
+          <include>**/*.jpg</include>
+          <include>**/*.jpeg</include>
+          <include>**/*.png</include>
+          <include>**/*.gif</include>
+          <include>**/*.bmp</include>
+          <include>**/*.html</include>
+          <include>**/*.htm</include>
+          <include>**/*.mp3</include>
+          <include>**/*.wav</include>
+          <include>**/*.ttf</include>
+          <include>**/*.otf</include>
+          <include>**/*.jks</include>
+          <include>**/*.p12</include>
+          <include>**/*.pfx</include>
+          <include>**/*.p7b</include>
+          <include>**/*.keystore</include>
+          <include>**/*.crt</include>
+          <include>**/*.cer</include>
+          <include>**/*.pem</include>
+          <include>**/*.dll</include>
+          <include>**/*.so</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+      <resource>
+        <directory>${basedir}/src/test/resources</directory>
+        <includes>
+          <include>META-INF/**/*.*</include>
+          <include>**/*.xml</include>
+          <include>**/*.xsd</include>
+          <include>**/*.yml</include>
+          <include>**/*.fxml</include>
+          <include>**/*.properties</include>
+          <include>**/*.sql</include>
+          <include>**/*.md</include>
+          <include>**/*.txt</include>
+          <include>**/*.js</include>
+          <include>**/*.css</include>
+          <include>**/*.json</include>
+          <include>**/*.jpg</include>
+          <include>**/*.jpeg</include>
+          <include>**/*.png</include>
+          <include>**/*.gif</include>
+          <include>**/*.bmp</include>
+          <include>**/*.html</include>
+          <include>**/*.htm</include>
+          <include>**/*.mp3</include>
+          <include>**/*.wav</include>
+          <include>**/*.ttf</include>
+          <include>**/*.otf</include>
+          <include>**/*.jks</include>
+          <include>**/*.p12</include>
+          <include>**/*.pfx</include>
+          <include>**/*.p7b</include>
+          <include>**/*.keystore</include>
+          <include>**/*.crt</include>
+          <include>**/*.cer</include>
+          <include>**/*.pem</include>
+          <include>**/*.dll</include>
+          <include>**/*.so</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
+    <pluginManagement>
+      <plugins>
+        <!-- About Compile -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${plugin.compile.version}</version>
+          <configuration>
+            <parameters>true</parameters>
+            <source>${java.version}</source>
+            <target>${java.version}</target>
+            <encoding>${project.build.sourceEncoding}</encoding>
+          </configuration>
+        </plugin>
+
+        <!-- About Javadoc -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${plugin.javadoc.version}</version>
+          <configuration>
+            <encoding>${project.build.sourceEncoding}</encoding>
+            <charset>${project.build.sourceEncoding}</charset>
+            <docencoding>${project.build.sourceEncoding}</docencoding>
+            <failOnError>false</failOnError>
+          </configuration>
+        </plugin>
+
+        <!-- About Source Code -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${plugin.source.version}</version>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <phase>package</phase>
+              <goals>
+                <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- About Jar -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${plugin.jar.version}</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <!--suppress UnresolvedMavenProperty -->
+                <mainClass>${start-class}</mainClass>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+
+        <!-- About War -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>${plugin.war.version}</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <!--suppress UnresolvedMavenProperty -->
+                <mainClass>${start-class}</mainClass>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+
+        <!-- About Release -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>${plugin.release.version}</version>
+          <configuration>
+            <tagNameFormat>v${project.version}</tagNameFormat>
+            <scmCommentPrefix>deploy:</scmCommentPrefix>
+          </configuration>
+        </plugin>
+
+        <!-- About Deployment -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${plugin.deploy.version}</version>
+        </plugin>
+
+        <!-- About Clean -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>${plugin.clean.version}</version>
+        </plugin>
+
+        <!-- About Install -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>${plugin.install.version}</version>
+        </plugin>
+
+        <!-- About Resources -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${plugin.resources.version}</version>
+          <configuration>
+            <encoding>${project.build.sourceEncoding}</encoding>
+            <useDefaultDelimiters>false</useDefaultDelimiters>
+            <nonFilteredFileExtensions>
+              <nonFilteredFileExtension>jks</nonFilteredFileExtension>
+              <nonFilteredFileExtension>p12</nonFilteredFileExtension>
+              <nonFilteredFileExtension>pfx</nonFilteredFileExtension>
+              <nonFilteredFileExtension>p7b</nonFilteredFileExtension>
+              <nonFilteredFileExtension>keystore</nonFilteredFileExtension>
+              <nonFilteredFileExtension>crt</nonFilteredFileExtension>
+              <nonFilteredFileExtension>cer</nonFilteredFileExtension>
+              <nonFilteredFileExtension>pem</nonFilteredFileExtension>
+            </nonFilteredFileExtensions>
+            <delimiters>
+              <delimiter>#</delimiter>
+              <delimiter>@</delimiter>
+              <delimiter>${*}</delimiter>
+            </delimiters>
+          </configuration>
+        </plugin>
+
+        <!-- About Dependency -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>${plugin.dependencies.version}</version>
+        </plugin>
+
+        <!-- About Unit Test -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${plugin.surefire.version}</version>
+          <configuration>
+            <skipTests>true</skipTests>
+            <argLine>-Dfile.encoding=${project.build.sourceEncoding}</argLine>
+          </configuration>
+        </plugin>
+
+        <!-- About Verify -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${plugin.enforcer.version}</version>
+          <executions>
+            <execution>
+              <id>enforce-versions</id>
+              <goals>
+                <goal>
+                  enforce
+                </goal>
+              </goals>
+              <configuration>
+                <rules>
+                  <requireJavaVersion>
+                    <version>${java.version}</version>
+                  </requireJavaVersion>
+                  <requireMavenVersion>
+                    <version>3.3.9</version>
+                  </requireMavenVersion>
+                </rules>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- About Unit Test Failed -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${plugin.failsafe.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>integration-test</goal>
+                <goal>verify</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+          </configuration>
+        </plugin>
+
+        <!-- About Executable Jar -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>${plugin.shade.version}</version>
+          <executions>
+            <execution>
+              <phase>package</phase>
+              <goals>
+                <goal>shade</goal>
+              </goals>
+              <configuration>
+                <transformers>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.handlers</resource>
+                  </transformer>
+                  <transformer implementation="org.springframework.boot.maven.PropertiesMergingResourceTransformer">
+                    <resource>META-INF/spring.factories</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.schemas</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                    <!--suppress UnresolvedMavenProperty -->
+                    <mainClass>${start-class}</mainClass>
+                  </transformer>
+                </transformers>
+              </configuration>
+            </execution>
+          </executions>
+          <dependencies>
+            <dependency>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-maven-plugin</artifactId>
+              <version>${plugin.spring.boot.version}</version>
+            </dependency>
+          </dependencies>
+          <configuration>
+            <keepDependenciesWithProvidedScope>true</keepDependenciesWithProvidedScope>
+            <createDependencyReducedPom>true</createDependencyReducedPom>
+            <filters>
+              <filter>
+                <artifact>*:*</artifact>
+                <excludes>
+                  <exclude>META-INF/*.SF</exclude>
+                  <exclude>META-INF/*.DSA</exclude>
+                  <exclude>META-INF/*.RSA</exclude>
+                </excludes>
+              </filter>
+            </filters>
+          </configuration>
+        </plugin>
+
+        <!-- About Assembly -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>${plugin.assembly.version}</version>
+        </plugin>
+
+        <!-- About Spring Boot -->
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>${plugin.spring.boot.version}</version>
+          <executions>
+            <execution>
+              <id>repackage</id>
+              <goals>
+                <goal>repackage</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <!--suppress UnresolvedMavenProperty -->
+            <mainClass>${start-class}</mainClass>
+          </configuration>
+        </plugin>
+
+        <!-- About Java FX -->
+        <plugin>
+          <groupId>org.openjfx</groupId>
+          <artifactId>javafx-maven-plugin</artifactId>
+          <version>${plugin.javafx.version}</version>
+          <executions>
+            <execution>
+              <!-- Default configuration for running -->
+              <!-- Usage: mvn clean javafx:run -->
+              <id>run</id>
+              <configuration>
+                <!--suppress UnresolvedMavenProperty -->
+                <mainClass>${start-class}</mainClass>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- About Maven Plugin Develop -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-plugin-plugin</artifactId>
+          <version>${plugin.plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clean-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>
