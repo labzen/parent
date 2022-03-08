@@ -57,13 +57,13 @@
     <java.version>11</java.version>
     <kotlin.version>1.6.10</kotlin.version>
 
-    <dependencies.version>1.0-SNAPSHOT</dependencies.version>
+    <dependencies.version>1.2</dependencies.version>
 
     <plugin.compile.version>3.8.1</plugin.compile.version>
     <plugin.jar.version>3.2.0</plugin.jar.version>
     <plugin.war.version>3.3.2</plugin.war.version>
     <plugin.release.version>3.0.0-M4</plugin.release.version>
-    <plugin.deploy.version>3.0.0-M1</plugin.deploy.version>
+    <plugin.deploy.version>3.0.0-M2</plugin.deploy.version>
     <plugin.clean.version>3.1.0</plugin.clean.version>
     <plugin.install.version>3.0.0-M1</plugin.install.version>
     <plugin.resources.version>3.2.0</plugin.resources.version>
