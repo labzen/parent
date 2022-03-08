@@ -3,8 +3,11 @@
 # Labzen Parent
 
 ![Labzen Dependencies](https://img.shields.io/badge/Labzen-Parent-green)
-
+![Maven Central](https://img.shields.io/maven-central/v/cn.labzen/parent)
 ![GitHub](https://img.shields.io/github/license/labzen/parent)
+
+![GitHub last commit](https://img.shields.io/github/last-commit/labzen/parent)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/labzen/parent)
 
 Labzen Parent 默认为所有`groupId is cn.labzen`的项目父/根POM，也可作为其他自建项目的父POM引用
 
