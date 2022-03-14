@@ -56,6 +56,7 @@
 
     <jdk.version>11</jdk.version>
     <kotlin.version>1.6.10</kotlin.version>
+    <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 
     <dependencies.version>1.3</dependencies.version>
 
@@ -420,9 +421,7 @@
             <execution>
               <id>enforce-versions</id>
               <goals>
-                <goal>
-                  enforce
-                </goal>
+                <goal>enforce</goal>
               </goals>
               <configuration>
                 <rules>
