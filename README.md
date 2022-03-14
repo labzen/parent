@@ -2,7 +2,7 @@
 ![LOGO](http://r7jiu5wkl.hd-bkt.clouddn.com/images/2022/02/19/16-34-57-167.png)
 # Labzen Parent
 
-![Labzen Dependencies](https://img.shields.io/badge/Labzen-Parent-green)
+![Labzen Parent](https://img.shields.io/badge/Labzen-Parent-green)
 ![Maven Central](https://img.shields.io/maven-central/v/cn.labzen/parent)
 ![GitHub](https://img.shields.io/github/license/labzen/parent)
 
