@@ -307,9 +307,12 @@
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${plugin.javadoc.version}</version>
           <configuration>
+            <source>${jdk.version}</source>
+            <quiet>true</quiet>
             <encoding>${project.build.sourceEncoding}</encoding>
             <charset>${project.build.sourceEncoding}</charset>
             <docencoding>${project.build.sourceEncoding}</docencoding>
+            <linksource>true</linksource>
             <failOnError>false</failOnError>
           </configuration>
         </plugin>
