@@ -216,8 +216,8 @@
           <version>${plugin.compile.version}</version>
           <configuration>
             <parameters>true</parameters>
-            <source>${java.version}</source>
-            <target>${java.version}</target>
+            <source>${jdk.version}</source>
+            <target>${jdk.version}</target>
             <encoding>${project.build.sourceEncoding}</encoding>
           </configuration>
         </plugin>
@@ -234,7 +234,7 @@
             <compilerPlugins>
               <plugin>spring</plugin>
             </compilerPlugins>
-            <jvmTarget>${java.version}</jvmTarget>
+            <jvmTarget>${jdk.version}</jvmTarget>
             <javaParameters>true</javaParameters>
           </configuration>
           <executions>
@@ -427,7 +427,7 @@
               <configuration>
                 <rules>
                   <requireJavaVersion>
-                    <version>${java.version}</version>
+                    <version>${jdk.version}</version>
                   </requireJavaVersion>
                   <requireMavenVersion>
                     <version>3.3.9</version>
