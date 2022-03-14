@@ -69,6 +69,7 @@
     <plugin.install.version>3.0.0-M1</plugin.install.version>
     <plugin.resources.version>3.2.0</plugin.resources.version>
     <plugin.dependency.version>3.2.0</plugin.dependency.version>
+    <plugin.antrun.version>3.0.0</plugin.antrun.version>
     <plugin.source.version>3.2.1</plugin.source.version>
     <plugin.javadoc.version>3.3.1</plugin.javadoc.version>
     <plugin.surefire.version>3.0.0-M5</plugin.surefire.version>
@@ -447,6 +448,13 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
           <version>${plugin.dependency.version}</version>
+        </plugin>
+
+        <!-- About Ant Run -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>${plugin.antrun.version}</version>
         </plugin>
 
         <!-- About Unit Test -->
