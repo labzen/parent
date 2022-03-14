@@ -345,7 +345,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>${plugin.dependencies.version}</version>
+          <version>${plugin.dependency.version}</version>
         </plugin>
 
         <!-- About Unit Test -->
