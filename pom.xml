@@ -735,6 +735,7 @@
           <plugin>
             <groupId>org.sonatype.plugins</groupId>
             <artifactId>nexus-staging-maven-plugin</artifactId>
+            <inherited>false</inherited>
             <configuration>
               <serverId>ossrh</serverId>
               <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
@@ -744,6 +745,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
+            <inherited>false</inherited>
           </plugin>
         </plugins>
       </build>
