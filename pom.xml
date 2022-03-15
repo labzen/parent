@@ -362,6 +362,7 @@
               <manifest>
                 <!--suppress UnresolvedMavenProperty -->
                 <mainClass>${start-class}</mainClass>
+                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
               </manifest>
             </archive>
