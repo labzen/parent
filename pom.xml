@@ -50,9 +50,13 @@
   </distributionManagement>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <organization.name>Labzen</organization.name>
     <organization.url>http://labzen.cn</organization.url>
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <require.maven.version>3.6.3</require.maven.version>
 
     <jdk.version>11</jdk.version>
     <kotlin.version>1.6.10</kotlin.version>
@@ -521,7 +525,7 @@
                     <version>${jdk.version}</version>
                   </requireJavaVersion>
                   <requireMavenVersion>
-                    <version>3.3.9</version>
+                    <version>${require.maven.version}</version>
                   </requireMavenVersion>
                 </rules>
               </configuration>
