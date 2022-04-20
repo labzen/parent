@@ -314,6 +314,22 @@
           <version>${plugin.resources.version}</version>
           <configuration>
             <encoding>${project.build.sourceEncoding}</encoding>
+            <resources>
+              <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <includes>
+                  <include>**/*</include>
+                </includes>
+                <filtering>true</filtering>
+              </resource>
+              <resource>
+                <directory>${basedir}/src/test/resources</directory>
+                <excludes>
+                  <exclude>**/*</exclude>
+                </excludes>
+                <filtering>true</filtering>
+              </resource>
+            </resources>
             <useDefaultDelimiters>false</useDefaultDelimiters>
             <nonFilteredFileExtensions>
               <nonFilteredFileExtension>jks</nonFilteredFileExtension>
