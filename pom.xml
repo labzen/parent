@@ -92,7 +92,6 @@
 
     <plugin.nexus.staging.version>1.6.12</plugin.nexus.staging.version>
     <plugin.spring.boot.version>2.1.3.RELEASE</plugin.spring.boot.version>
-    <plugin.javafx.version>0.0.8</plugin.javafx.version>
   </properties>
 
   <dependencyManagement>
@@ -680,24 +679,6 @@
             <!--suppress UnresolvedMavenProperty -->
             <mainClass>${start-class}</mainClass>
           </configuration>
-        </plugin>
-
-        <!-- About JavaFX: The JavaFX Plugin is used to run JavaFX 11+ projects -->
-        <plugin>
-          <groupId>org.openjfx</groupId>
-          <artifactId>javafx-maven-plugin</artifactId>
-          <version>${plugin.javafx.version}</version>
-          <executions>
-            <execution>
-              <!-- Default configuration for running -->
-              <!-- Usage: mvn clean javafx:run -->
-              <id>run</id>
-              <configuration>
-                <!--suppress UnresolvedMavenProperty -->
-                <mainClass>${start-class}</mainClass>
-              </configuration>
-            </execution>
-          </executions>
         </plugin>
 
         <plugin>
