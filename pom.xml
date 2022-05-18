@@ -140,6 +140,7 @@
   </dependencies>
 
   <build>
+
     <resources>
       <resource>
         <directory>${basedir}/src/main/resources</directory>
@@ -154,19 +155,32 @@
           <include>**/*.md</include>
           <include>**/*.txt</include>
           <include>**/*.js</include>
+          <include>**/*.js.map</include>
           <include>**/*.css</include>
           <include>**/*.json</include>
+          <include>**/*.html</include>
+          <include>**/*.htm</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+      <resource>
+        <!-- maven的filter（拦截），会破坏font文件的二进制文件格式 -->
+        <directory>${basedir}/src/main/resources</directory>
+        <filtering>false</filtering>
+        <includes>
           <include>**/*.jpg</include>
           <include>**/*.jpeg</include>
           <include>**/*.png</include>
           <include>**/*.gif</include>
           <include>**/*.bmp</include>
-          <include>**/*.html</include>
-          <include>**/*.htm</include>
-          <include>**/*.mp3</include>
-          <include>**/*.wav</include>
           <include>**/*.ttf</include>
           <include>**/*.otf</include>
+          <include>**/*.eot</include>
+          <include>**/*.svg</include>
+          <include>**/*.woff</include>
+          <include>**/*.woff2</include>
+          <include>**/*.mp3</include>
+          <include>**/*.wav</include>
           <include>**/*.jks</include>
           <include>**/*.p12</include>
           <include>**/*.pfx</include>
@@ -178,7 +192,6 @@
           <include>**/*.dll</include>
           <include>**/*.so</include>
         </includes>
-        <filtering>true</filtering>
       </resource>
     </resources>
 
@@ -196,19 +209,32 @@
           <include>**/*.md</include>
           <include>**/*.txt</include>
           <include>**/*.js</include>
+          <include>**/*.js.map</include>
           <include>**/*.css</include>
           <include>**/*.json</include>
+          <include>**/*.html</include>
+          <include>**/*.htm</include>
+        </includes>
+        <filtering>true</filtering>
+      </testResource>
+      <testResource>
+        <!-- maven的filter，会破坏二进制文件格式 -->
+        <directory>${basedir}/src/test/resources</directory>
+        <filtering>false</filtering>
+        <includes>
           <include>**/*.jpg</include>
           <include>**/*.jpeg</include>
           <include>**/*.png</include>
           <include>**/*.gif</include>
           <include>**/*.bmp</include>
-          <include>**/*.html</include>
-          <include>**/*.htm</include>
-          <include>**/*.mp3</include>
-          <include>**/*.wav</include>
           <include>**/*.ttf</include>
           <include>**/*.otf</include>
+          <include>**/*.eot</include>
+          <include>**/*.svg</include>
+          <include>**/*.woff</include>
+          <include>**/*.woff2</include>
+          <include>**/*.mp3</include>
+          <include>**/*.wav</include>
           <include>**/*.jks</include>
           <include>**/*.p12</include>
           <include>**/*.pfx</include>
@@ -220,7 +246,6 @@
           <include>**/*.dll</include>
           <include>**/*.so</include>
         </includes>
-        <filtering>true</filtering>
       </testResource>
     </testResources>
 
