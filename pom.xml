@@ -59,7 +59,7 @@
     <require.maven.version>3.6.3</require.maven.version>
 
     <jdk.version>11</jdk.version>
-    <kotlin.version>1.6.10</kotlin.version>
+    <kotlin.version>1.6.21</kotlin.version>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 
     <dependencies.version>1.5</dependencies.version>
