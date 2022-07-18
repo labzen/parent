@@ -91,7 +91,7 @@
     <kotlin.version>1.6.10</kotlin.version>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 
-    <dependencies.version>1.6-SNAPSHOT</dependencies.version>
+    <dependencies.version>1.5</dependencies.version>
 
     <plugin.clean.version>3.1.0</plugin.clean.version>
     <plugin.compiler.version>3.10.0</plugin.compiler.version>
@@ -136,16 +136,6 @@
   </dependencyManagement>
 
   <dependencies>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-    </dependency>
-    <!-- 软件缺陷检测注解 -->
-    <dependency>
-      <groupId>com.google.code.findbugs</groupId>
-      <artifactId>jsr305</artifactId>
-    </dependency>
-
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
