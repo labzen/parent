@@ -6,7 +6,7 @@
   <groupId>cn.labzen</groupId>
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
-  <version>11.7</version>
+  <version>11.8-SNAPSHOT</version>
   <name>${organization.name}.Parent</name>
   <description>Labzen PARENT POM（11版本对应JDK 11）</description>
   <url>https://github.com/labzen/parent</url>
@@ -62,7 +62,7 @@
     <kotlin.version>1.7.0</kotlin.version>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 
-    <dependencies.version>1.7</dependencies.version>
+    <dependencies.version>1.8-SNAPSHOT</dependencies.version>
 
     <plugin.clean.version>3.1.0</plugin.clean.version>
     <plugin.compiler.version>3.10.0</plugin.compiler.version>
