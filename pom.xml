@@ -507,7 +507,19 @@
             <docencoding>${project.build.sourceEncoding}</docencoding>
             <linksource>true</linksource>
             <failOnError>false</failOnError>
+            <additionalJOptions>
+              <!-- 忽略自定义标签的错误 -->
+              <additionalJOption>-Xdoclint:none</additionalJOption>
+            </additionalJOptions>
           </configuration>
+          <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
 
         <!-- About Surefire Report: Generate a report based on the results of unit tests. -->
