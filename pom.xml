@@ -7,7 +7,7 @@
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
   <version>11.8-SNAPSHOT</version>
-  <name>${organization.name}.Parent</name>
+  <name>Labzen.Parent</name>
   <description>Labzen PARENT POM（11版本对应JDK 11）</description>
   <url>https://github.com/labzen/parent</url>
 
@@ -19,8 +19,8 @@
   </licenses>
 
   <organization>
-    <name>${organization.name}</name>
-    <url>${organization.url}</url>
+    <name>Labzen</name>
+    <url>https://labzen.cn</url>
   </organization>
 
   <developers>
