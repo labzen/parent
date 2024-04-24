@@ -140,6 +140,7 @@
           <include>**/*.xml</include>
           <include>**/*.xsd</include>
           <include>**/*.yml</include>
+          <include>**/*.yaml</include>
           <include>**/*.fxml</include>
           <include>**/*.properties</include>
           <include>**/*.sql</include>
@@ -151,11 +152,21 @@
           <include>**/*.json</include>
           <include>**/*.html</include>
           <include>**/*.htm</include>
+          <include>**/*.jks</include>
+          <include>**/*.p12</include>
+          <include>**/*.pfx</include>
+          <include>**/*.p7b</include>
+          <include>**/*.keystore</include>
+          <include>**/*.crt</include>
+          <include>**/*.cer</include>
+          <include>**/*.pem</include>
+          <include>**/*.dll</include>
+          <include>**/*.so</include>
         </includes>
         <filtering>true</filtering>
       </resource>
       <resource>
-        <!-- maven的filter（拦截），会破坏font文件的二进制文件格式 -->
+        <!-- maven的filter（拦截），会破坏font等二进制文件的格式 -->
         <directory>${basedir}/src/main/resources</directory>
         <filtering>false</filtering>
         <includes>
@@ -194,6 +205,7 @@
           <include>**/*.xml</include>
           <include>**/*.xsd</include>
           <include>**/*.yml</include>
+          <include>**/*.yaml</include>
           <include>**/*.fxml</include>
           <include>**/*.properties</include>
           <include>**/*.sql</include>
@@ -205,6 +217,16 @@
           <include>**/*.json</include>
           <include>**/*.html</include>
           <include>**/*.htm</include>
+          <include>**/*.jks</include>
+          <include>**/*.p12</include>
+          <include>**/*.pfx</include>
+          <include>**/*.p7b</include>
+          <include>**/*.keystore</include>
+          <include>**/*.crt</include>
+          <include>**/*.cer</include>
+          <include>**/*.pem</include>
+          <include>**/*.dll</include>
+          <include>**/*.so</include>
         </includes>
         <filtering>true</filtering>
       </testResource>
