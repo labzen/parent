@@ -59,8 +59,9 @@
     <require.maven.version>3.6.3</require.maven.version>
 
     <jdk.version>11</jdk.version>
-    <kotlin.version>1.7.0</kotlin.version>
+    <kotlin.version>1.9.10</kotlin.version>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
+    <kotlin.code.style>official</kotlin.code.style>
 
     <dependencies.version>1.9-SNAPSHOT</dependencies.version>
 
@@ -421,7 +422,7 @@
             <archive>
               <manifest>
                 <!--suppress UnresolvedMavenProperty -->
-                <mainClass>${start-class}</mainClass>
+                <mainClass>${main.class}</mainClass>
                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
               </manifest>
@@ -438,7 +439,7 @@
             <archive>
               <manifest>
                 <!--suppress UnresolvedMavenProperty -->
-                <mainClass>${start-class}</mainClass>
+                <mainClass>${main.class}</mainClass>
                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
               </manifest>
             </archive>
@@ -470,7 +471,7 @@
                   <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                   <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                     <!--suppress UnresolvedMavenProperty -->
-                    <mainClass>${start-class}</mainClass>
+                    <mainClass>${main.class}</mainClass>
                   </transformer>
                 </transformers>
               </configuration>
@@ -639,8 +640,10 @@
           <artifactId>kotlin-maven-plugin</artifactId>
           <version>${kotlin.version}</version>
           <configuration>
+            <nowarn>true</nowarn> <!-- Disable warnings -->
             <args>
-              <arg>-Xjsr305=strict</arg>
+              <arg>-Xjsr305=strict</arg> <!-- Enable strict mode for JSR-305 annotations -->
+              <arg>-Xjvm-default=all</arg>
             </args>
             <compilerPlugins>
               <plugin>spring</plugin>
@@ -648,6 +651,7 @@
             <jvmTarget>${jdk.version}</jvmTarget>
             <javaParameters>true</javaParameters>
           </configuration>
+          <extensions>true</extensions>
           <executions>
             <execution>
               <id>compile</id>
@@ -727,7 +731,7 @@
           </executions>
           <configuration>
             <!--suppress UnresolvedMavenProperty -->
-            <mainClass>${start-class}</mainClass>
+            <mainClass>${main.class}</mainClass>
           </configuration>
         </plugin>
 
