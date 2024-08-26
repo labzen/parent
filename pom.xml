@@ -6,14 +6,14 @@
   <groupId>cn.labzen</groupId>
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
-  <version>11.9.1</version>
+  <version>11.9.2</version>
   <name>Labzen.Parent</name>
   <description>Labzen PARENT POM（11版本对应JDK 11）</description>
   <url>https://github.com/labzen/parent</url>
 
   <licenses>
     <license>
-      <name>Apache License 2.0</name>
+      <name>The Apache License, Version 2.0</name>
       <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
@@ -49,7 +49,19 @@
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
     <kotlin.code.style>official</kotlin.code.style>
 
-    <dependencies.version>1.9.2</dependencies.version>
+    <labzen.dependencies.version>1.9.2</labzen.dependencies.version>
+    <labzen.meta.version>1.4.1</labzen.meta.version>
+    <labzen.logger.version>1.5.0</labzen.logger.version>
+    <labzen.spring.version>1.2.0</labzen.spring.version>
+    <labzen.tool.version>1.3.2</labzen.tool.version>
+    <labzen.network.version>1.0.1</labzen.network.version>
+    <labzen.algorithm.version>1.1.1</labzen.algorithm.version>
+    <labzen.web.version>1.0.0</labzen.web.version>
+    <labzen.plugin.version>1.0.0</labzen.plugin.version>
+    <labzen.rights.version>1.0.0</labzen.rights.version>
+    <labzen.sql.version>1.0.0</labzen.sql.version>
+    <labzen.cache.version>1.0.0</labzen.cache.version>
+    <labzen.cli.version>1.0.0</labzen.cli.version>
 
     <jupiter.version>5.9.3</jupiter.version>
     <hamcrest.version>2.2</hamcrest.version>
@@ -92,7 +104,7 @@
       <dependency>
         <groupId>cn.labzen</groupId>
         <artifactId>dependencies</artifactId>
-        <version>${dependencies.version}</version>
+        <version>${labzen.dependencies.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
