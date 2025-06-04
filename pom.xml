@@ -6,7 +6,7 @@
   <groupId>cn.labzen</groupId>
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
-  <version>11.9.2</version>
+  <version>11.9.3-SNAPSHOT</version>
   <name>Labzen.Parent</name>
   <description>Labzen PARENT POM（11版本对应JDK 11）</description>
   <url>https://github.com/labzen/parent</url>
@@ -45,11 +45,12 @@
     <require.maven.version>3.6.3</require.maven.version>
 
     <jdk.version>11</jdk.version>
-    <kotlin.version>1.9.10</kotlin.version>
+    <kotlin.version>1.9.25</kotlin.version>
+    <dokka.version>1.9.20</dokka.version>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
     <kotlin.code.style>official</kotlin.code.style>
 
-    <labzen.dependencies.version>1.9.2</labzen.dependencies.version>
+    <labzen.dependencies.version>1.10.2</labzen.dependencies.version>
     <labzen.meta.version>1.4.1</labzen.meta.version>
     <labzen.logger.version>1.5.0</labzen.logger.version>
     <labzen.spring.version>1.2.0</labzen.spring.version>
@@ -63,10 +64,10 @@
     <labzen.cache.version>1.0.0</labzen.cache.version>
     <labzen.cli.version>1.0.0</labzen.cli.version>
 
-    <jupiter.version>5.9.3</jupiter.version>
-    <hamcrest.version>2.2</hamcrest.version>
-    <mockito.version>4.11.0</mockito.version>
-    <jmh.version>1.35</jmh.version>
+    <jupiter.version>5.13.0</jupiter.version>
+    <hamcrest.version>3.0</hamcrest.version>
+    <mockito.version>5.18.0</mockito.version>
+    <jmh.version>1.37</jmh.version>
 
     <plugin.clean.version>3.1.0</plugin.clean.version>
     <plugin.compiler.version>3.10.0</plugin.compiler.version>
@@ -115,7 +116,7 @@
       </dependency>
       <dependency>
         <groupId>org.hamcrest</groupId>
-        <artifactId>hamcrest-library</artifactId>
+        <artifactId>hamcrest</artifactId>
         <version>${hamcrest.version}</version>
       </dependency>
       <dependency>
@@ -139,7 +140,7 @@
     </dependency>
     <dependency>
       <groupId>org.hamcrest</groupId>
-      <artifactId>hamcrest-library</artifactId>
+      <artifactId>hamcrest</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -161,6 +162,16 @@
       <releases>
         <enabled>true</enabled>
       </releases>
+    </repository>
+    <repository>
+      <id>central-portal-snapshots</id>
+      <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
     </repository>
     <repository>
       <id>aliyun-public</id>
@@ -188,6 +199,13 @@
       </releases>
     </pluginRepository>
   </pluginRepositories>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <build>
     <resources>
@@ -697,6 +715,7 @@
           <artifactId>kotlin-maven-plugin</artifactId>
           <version>${kotlin.version}</version>
           <configuration>
+            <languageVersion>1.9</languageVersion>
             <nowarn>true</nowarn> <!-- Disable warnings -->
             <args>
               <arg>-Xjsr305=strict</arg> <!-- Enable strict mode for JSR-305 annotations -->
@@ -750,7 +769,7 @@
         <plugin>
           <groupId>org.jetbrains.dokka</groupId>
           <artifactId>dokka-maven-plugin</artifactId>
-          <version>${kotlin.version}</version>
+          <version>${dokka.version}</version>
           <executions>
             <execution>
               <phase>compile</phase>
@@ -860,7 +879,7 @@
       <plugin>
         <groupId>org.sonatype.central</groupId>
         <artifactId>central-publishing-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>0.7.0</version>
         <extensions>true</extensions>
         <configuration>
           <publishingServerId>central</publishingServerId>
