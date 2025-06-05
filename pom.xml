@@ -6,7 +6,7 @@
   <groupId>cn.labzen</groupId>
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
-  <version>11.9.4</version>
+  <version>11.9.5</version>
   <name>Labzen.Parent</name>
   <description>Labzen PARENT POM（11版本对应JDK 11）</description>
   <url>https://github.com/labzen/parent</url>
@@ -80,6 +80,7 @@
     <plugin.dependency.version>3.2.0</plugin.dependency.version>
     <plugin.enforcer.version>3.0.0</plugin.enforcer.version>
     <plugin.gpg.version>3.0.1</plugin.gpg.version>
+    <plugin.central-publishing.version>0.7.0</plugin.central-publishing.version>
     <plugin.plugin.version>3.6.2</plugin.plugin.version>
     <plugin.release.version>3.0.0-M4</plugin.release.version>
 
@@ -187,13 +188,6 @@
       </releases>
     </pluginRepository>
   </pluginRepositories>
-
-  <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://central.sonatype.com/repository/maven-snapshots/</url>
-    </snapshotRepository>
-  </distributionManagement>
 
   <build>
     <resources>
@@ -678,6 +672,18 @@
           </executions>
         </plugin>
 
+        <!-- About Central Publishing: publishing components in Maven Central. -->
+        <plugin>
+          <groupId>org.sonatype.central</groupId>
+          <artifactId>central-publishing-maven-plugin</artifactId>
+          <version>${plugin.central-publishing.version}</version>
+          <extensions>true</extensions>
+          <configuration>
+            <publishingServerId>central</publishingServerId>
+            <autoPublish>true</autoPublish>
+          </configuration>
+        </plugin>
+
         <!-- About Plugin: Create a Maven plugin descriptor for any mojos found in the source tree, to include in the JAR. -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -864,18 +870,26 @@
         <artifactId>maven-gpg-plugin</artifactId>
         <inherited>false</inherited>
       </plugin>
+
       <plugin>
         <groupId>org.sonatype.central</groupId>
         <artifactId>central-publishing-maven-plugin</artifactId>
-        <version>0.7.0</version>
-        <extensions>true</extensions>
-        <configuration>
-          <publishingServerId>central</publishingServerId>
-          <autoPublish>true</autoPublish>
-        </configuration>
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>snapshot-deploy</id>
+
+      <distributionManagement>
+        <snapshotRepository>
+          <id>central</id>
+          <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+        </snapshotRepository>
+      </distributionManagement>
+    </profile>
+  </profiles>
 
   <reporting>
     <plugins>
