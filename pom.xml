@@ -697,6 +697,7 @@
             <args>
               <arg>-Xjsr305=strict</arg> <!-- Enable strict mode for JSR-305 annotations -->
               <arg>-Xjvm-default=all</arg>
+              <arg>-Xuse-k2=false</arg> <!-- disable K2 for 1.9.25 -->
             </args>
             <compilerPlugins>
               <plugin>spring</plugin>
