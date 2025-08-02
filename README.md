@@ -21,7 +21,7 @@ Install with Maven
   <parent>
     <artifactId>parent</artifactId>
     <groupId>cn.labzen</groupId>
-    <version>11.0</version>
+    <version>21.x</version>
     <relativePath />
   </parent>
 ```
@@ -29,4 +29,4 @@ Install with Maven
 
 `cn.labzen:parent`为所有以它为父POM的项目，提供一致的构建配置，主要目的还是为统一多个项目之间的技术选型
 
-`cn.labzen:parent:11.x` 版本对应的是 JDK 11 ； 后续可能会创建对应 JDK 17 的 cn.labzen:parent:17.x； 不出意外不会创建基于这两个 JDK LTS 版本之外的父POM，直到17之后的下一个 LTS JDK
+`cn.labzen:parent:21.x` 版本对应的是 JDK 21
