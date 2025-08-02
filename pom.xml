@@ -6,9 +6,9 @@
   <groupId>cn.labzen</groupId>
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
-  <version>11.9.7</version>
+  <version>21.0-SNAPSHOT</version>
   <name>Labzen.Parent</name>
-  <description>Labzen PARENT POM（11版本对应JDK 11）</description>
+  <description>Labzen 根POM（21版本对应JDK 21）</description>
   <url>https://github.com/labzen/parent</url>
 
   <licenses>
@@ -39,18 +39,13 @@
   </scm>
 
   <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <require.maven.version>3.6.3</require.maven.version>
+    <require.maven.version>3.9.3</require.maven.version>
 
-    <jdk.version>11</jdk.version>
-    <kotlin.version>1.9.25</kotlin.version>
-    <dokka.version>1.9.20</dokka.version>
-    <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
-    <kotlin.code.style>official</kotlin.code.style>
-
-    <labzen.dependencies.version>1.10.6</labzen.dependencies.version>
+    <labzen.bom.version>2.0-SNAPSHOT</labzen.bom.version>
     <bom.junit-jupiter>5.13.0</bom.junit-jupiter>
 
     <plugin.clean.version>3.5.0</plugin.clean.version>
@@ -88,8 +83,8 @@
     <dependencies>
       <dependency>
         <groupId>cn.labzen</groupId>
-        <artifactId>dependencies</artifactId>
-        <version>${labzen.dependencies.version}</version>
+        <artifactId>labzen-bom</artifactId>
+        <version>${labzen.bom.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -148,18 +143,6 @@
     <repository>
       <id>aliyun-public</id>
       <url>https://maven.aliyun.com/repository/public</url>
-    </repository>
-    <repository>
-      <id>aliyun-central</id>
-      <url>https://maven.aliyun.com/repository/central</url>
-    </repository>
-    <repository>
-      <id>aliyun-spring</id>
-      <url>https://maven.aliyun.com/repository/spring</url>
-    </repository>
-    <repository>
-      <id>activiti-releases</id>
-      <url>https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases</url>
     </repository>
   </repositories>
   <pluginRepositories>
@@ -346,8 +329,8 @@
           </executions>
           <configuration>
             <parameters>true</parameters>
-            <source>${jdk.version}</source>
-            <target>${jdk.version}</target>
+            <source>${maven.compiler.source}</source>
+            <target>${maven.compiler.target}</target>
             <encoding>${project.build.sourceEncoding}</encoding>
           </configuration>
         </plugin>
@@ -563,7 +546,7 @@
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${plugin.javadoc.version}</version>
           <configuration>
-            <source>${jdk.version}</source>
+            <source>${maven.compiler.source}</source>
             <quiet>true</quiet>
             <encoding>${project.build.sourceEncoding}</encoding>
             <charset>${project.build.sourceEncoding}</charset>
@@ -628,7 +611,7 @@
               <configuration>
                 <rules>
                   <requireJavaVersion>
-                    <version>${jdk.version}</version>
+                    <version>${maven.compiler.source}</version>
                   </requireJavaVersion>
                   <requireMavenVersion>
                     <version>${require.maven.version}</version>
@@ -686,81 +669,6 @@
         </plugin>
 
         <!-- ==== Others ==== -->
-        <!-- About Kotlin: Kotlin Maven Plugin. -->
-        <plugin>
-          <groupId>org.jetbrains.kotlin</groupId>
-          <artifactId>kotlin-maven-plugin</artifactId>
-          <version>${kotlin.version}</version>
-          <configuration>
-            <languageVersion>1.9</languageVersion>
-            <nowarn>true</nowarn> <!-- Disable warnings -->
-            <args>
-              <arg>-Xjsr305=strict</arg> <!-- Enable strict mode for JSR-305 annotations -->
-              <arg>-Xjvm-default=all</arg>
-              <arg>-Xuse-k2=false</arg> <!-- disable K2 for 1.9.25 -->
-            </args>
-            <compilerPlugins>
-              <plugin>spring</plugin>
-            </compilerPlugins>
-            <jvmTarget>${jdk.version}</jvmTarget>
-            <javaParameters>true</javaParameters>
-          </configuration>
-          <extensions>true</extensions>
-          <executions>
-            <execution>
-              <id>compile</id>
-              <phase>process-sources</phase>
-              <goals>
-                <goal>compile</goal>
-              </goals>
-              <configuration>
-                <sourceDirs>
-                  <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
-                  <sourceDir>${project.basedir}/src/main/java</sourceDir>
-                </sourceDirs>
-              </configuration>
-            </execution>
-            <execution>
-              <id>test-compile</id>
-              <phase>process-test-sources</phase>
-              <goals>
-                <goal>test-compile</goal>
-              </goals>
-              <configuration>
-                <sourceDirs>
-                  <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
-                  <sourceDir>${project.basedir}/src/test/java</sourceDir>
-                </sourceDirs>
-              </configuration>
-            </execution>
-          </executions>
-          <dependencies>
-            <dependency>
-              <groupId>org.jetbrains.kotlin</groupId>
-              <artifactId>kotlin-maven-allopen</artifactId>
-              <version>${kotlin.version}</version>
-            </dependency>
-          </dependencies>
-        </plugin>
-
-        <!-- About Dokka: Dokka is a documentation engine for Kotlin and Java, performing the same function as Javadoc for Java. -->
-        <plugin>
-          <groupId>org.jetbrains.dokka</groupId>
-          <artifactId>dokka-maven-plugin</artifactId>
-          <version>${dokka.version}</version>
-          <executions>
-            <execution>
-              <phase>compile</phase>
-              <goals>
-                <goal>javadocJar</goal>
-              </goals>
-            </execution>
-          </executions>
-          <configuration>
-            <jdkVersion>${jdk.version}</jdkVersion>
-            <reportUndocumented>false</reportUndocumented>
-          </configuration>
-        </plugin>
 
         <!-- About Nexus Staging: Provides support to access staging functionality in a remote Nexus Professional server.  -->
         <plugin>
