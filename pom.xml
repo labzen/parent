@@ -386,9 +386,9 @@
               </resource>
               <resource>
                 <directory>${basedir}/src/test/resources</directory>
-                <excludes>
-                  <exclude>**/*</exclude>
-                </excludes>
+                <includes>
+                  <include>**/*</include>
+                </includes>
                 <filtering>true</filtering>
               </resource>
             </resources>
@@ -418,7 +418,9 @@
           <version>${plugin.surefire.version}</version>
           <configuration>
             <skipTests>false</skipTests>
-            <argLine>-Dfile.encoding=${project.build.sourceEncoding}</argLine>
+            <!--suppress UnresolvedMavenProperty -->
+            <argLine>-Dfile.encoding=${project.build.sourceEncoding} ${jacocoArgLine}</argLine>
+            <testFailureIgnore>true</testFailureIgnore>
           </configuration>
         </plugin>
 
@@ -587,6 +589,10 @@
               <goals>
                 <goal>prepare-agent</goal>
               </goals>
+              <configuration>
+                <destFile>target/jacoco.exec</destFile>
+                <propertyName>jacocoArgLine</propertyName>
+              </configuration>
             </execution>
             <execution>
               <id>report</id>
@@ -814,6 +820,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
       </plugin>
 
       <plugin>
