@@ -6,7 +6,7 @@
   <groupId>cn.labzen</groupId>
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
-  <version>21.0</version>
+  <version>21.1-SNAPSHOT</version>
   <name>Labzen.Parent</name>
   <description>Labzen 根POM（21版本对应JDK 21）</description>
   <url>https://github.com/labzen/parent</url>
