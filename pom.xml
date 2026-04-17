@@ -6,7 +6,7 @@
   <groupId>cn.labzen</groupId>
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
-  <version>21.1</version>
+  <version>21.2-SNAPSHOT</version>
   <name>Labzen.Parent</name>
   <description>Labzen 根POM（21版本对应JDK 21）</description>
   <url>https://github.com/labzen/parent</url>
@@ -45,7 +45,7 @@
 
     <require.maven.version>3.9.3</require.maven.version>
 
-    <labzen.bom.version>2.1</labzen.bom.version>
+    <labzen.bom.version>2.2-SNAPSHOT</labzen.bom.version>
     <bom.junit-jupiter>5.13.0</bom.junit-jupiter>
 
     <plugin.clean.version>3.5.0</plugin.clean.version>
