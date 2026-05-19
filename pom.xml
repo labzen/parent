@@ -73,6 +73,8 @@
     <plugin.central-publishing.version>0.7.0</plugin.central-publishing.version>
     <plugin.plugin.version>3.15.1</plugin.plugin.version>
     <plugin.release.version>3.1.1</plugin.release.version>
+    <plugin.checkstyle.version>3.6.0</plugin.checkstyle.version>
+    <plugin.spotbugs.version>4.9.8.3</plugin.spotbugs.version>
 
     <plugin.jacoco.version>0.8.12</plugin.jacoco.version>
     <plugin.nexus.staging.version>1.6.12</plugin.nexus.staging.version>
@@ -442,6 +444,18 @@
                 <goal>shade</goal>
               </goals>
               <configuration>
+                <keepDependenciesWithProvidedScope>true</keepDependenciesWithProvidedScope>
+                <createDependencyReducedPom>true</createDependencyReducedPom>
+                <filters>
+                  <filter>
+                    <artifact>*:*</artifact>
+                    <excludes>
+                      <exclude>META-INF/*.SF</exclude>
+                      <exclude>META-INF/*.DSA</exclude>
+                      <exclude>META-INF/*.RSA</exclude>
+                    </excludes>
+                  </filter>
+                </filters>
                 <transformers>
                   <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
                     <resource>META-INF/spring.handlers</resource>
@@ -468,20 +482,6 @@
               <version>${plugin.spring.boot.version}</version>
             </dependency>
           </dependencies>
-          <configuration>
-            <keepDependenciesWithProvidedScope>true</keepDependenciesWithProvidedScope>
-            <createDependencyReducedPom>true</createDependencyReducedPom>
-            <filters>
-              <filter>
-                <artifact>*:*</artifact>
-                <excludes>
-                  <exclude>META-INF/*.SF</exclude>
-                  <exclude>META-INF/*.DSA</exclude>
-                  <exclude>META-INF/*.RSA</exclude>
-                </excludes>
-              </filter>
-            </filters>
-          </configuration>
         </plugin>
 
         <!-- About Source: Build a source-JAR from the current project. -->
@@ -689,6 +689,20 @@
             <tagNameFormat>v${project.version}</tagNameFormat>
             <scmCommentPrefix>deploy:</scmCommentPrefix>
           </configuration>
+        </plugin>
+
+        <!-- Generates a report on violations of code style and optionally fails the build if violations are detected. -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>${plugin.checkstyle.version}</version>
+        </plugin>
+
+        <!-- About SpotBugs: This Plug-In generates reports based on the SpotBugs Library -->
+        <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>${plugin.spotbugs.version}</version>
         </plugin>
 
         <!-- ==== Others ==== -->
