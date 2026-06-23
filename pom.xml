@@ -76,6 +76,7 @@
     <plugin.checkstyle.version>3.6.0</plugin.checkstyle.version>
     <plugin.spotbugs.version>4.10.2.0</plugin.spotbugs.version>
 
+    <plugin.flatten.version>1.7.3</plugin.flatten.version>
     <plugin.jacoco.version>0.8.12</plugin.jacoco.version>
     <plugin.nexus.staging.version>1.7.0</plugin.nexus.staging.version>
     <plugin.spring.boot.version>3.5.15</plugin.spring.boot.version>
@@ -536,6 +537,7 @@
           <version>${plugin.surefire.version}</version>
         </plugin>
 
+        <!-- About Jacoco: The JaCoCo Maven Plugin provides the JaCoCo runtime agent to your tests and allows basic report creation. -->
         <plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
@@ -604,6 +606,33 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-antrun-plugin</artifactId>
           <version>${plugin.antrun.version}</version>
+        </plugin>
+
+        <!-- About Flatten: Plugin to generate flattened POM (reduced and resolved information required for consumers of maven repositories) and to use (install, sign, deploy) it instead of original pom.xml. -->
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>flatten-maven-plugin</artifactId>
+          <version>${plugin.flatten.version}</version>
+          <configuration>
+            <updatePomFile>true</updatePomFile>
+            <flattenMode>resolveCiFriendliesOnly</flattenMode>
+          </configuration>
+          <executions>
+            <execution>
+              <id>flatten</id>
+              <phase>process-resources</phase>
+              <goals>
+                <goal>flatten</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>flatten-clean</id>
+              <phase>clean</phase>
+              <goals>
+                <goal>clean</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
 
         <!-- About Assembly: Build an assembly (distribution) of sources and/or binaries. -->
