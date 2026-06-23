@@ -6,7 +6,7 @@
   <groupId>cn.labzen</groupId>
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
-  <version>21.2</version>
+  <version>21.3-SNAPSHOT</version>
   <name>Labzen.Parent</name>
   <description>Labzen 根POM（21版本对应JDK 21）</description>
   <url>https://github.com/labzen/parent</url>
@@ -45,40 +45,40 @@
 
     <require.maven.version>3.9.3</require.maven.version>
 
-    <labzen.bom.version>2.2</labzen.bom.version>
+    <labzen.bom.version>2.3-SNAPSHOT</labzen.bom.version>
     <bom.junit-jupiter>5.13.0</bom.junit-jupiter>
 
     <plugin.clean.version>3.5.0</plugin.clean.version>
-    <plugin.compiler.version>3.14.0</plugin.compiler.version>
+    <plugin.compiler.version>3.15.0</plugin.compiler.version>
     <plugin.deploy.version>3.1.4</plugin.deploy.version>
     <plugin.failsafe.version>3.5.3</plugin.failsafe.version>
     <plugin.install.version>3.1.4</plugin.install.version>
-    <plugin.resources.version>3.3.1</plugin.resources.version>
-    <plugin.surefire.version>3.5.3</plugin.surefire.version>
-    <plugin.site.version>3.21.0</plugin.site.version>
+    <plugin.resources.version>3.5.0</plugin.resources.version>
+    <plugin.surefire.version>3.5.6</plugin.surefire.version>
+    <plugin.site.version>3.22.0</plugin.site.version>
     <plugin.verifier.version>1.1</plugin.verifier.version>
 
-    <plugin.jar.version>3.4.2</plugin.jar.version>
-    <plugin.war.version>3.4.0</plugin.war.version>
-    <plugin.shade.version>3.6.0</plugin.shade.version>
-    <plugin.source.version>3.3.1</plugin.source.version>
+    <plugin.jar.version>3.5.0</plugin.jar.version>
+    <plugin.war.version>3.5.1</plugin.war.version>
+    <plugin.shade.version>3.6.2</plugin.shade.version>
+    <plugin.source.version>3.4.0</plugin.source.version>
 
-    <plugin.javadoc.version>3.11.2</plugin.javadoc.version>
+    <plugin.javadoc.version>3.12.0</plugin.javadoc.version>
 
-    <plugin.antrun.version>3.1.0</plugin.antrun.version>
-    <plugin.assembly.version>3.7.1</plugin.assembly.version>
-    <plugin.dependency.version>3.8.1</plugin.dependency.version>
-    <plugin.enforcer.version>3.5.0</plugin.enforcer.version>
-    <plugin.gpg.version>3.2.7</plugin.gpg.version>
-    <plugin.central-publishing.version>0.7.0</plugin.central-publishing.version>
-    <plugin.plugin.version>3.15.1</plugin.plugin.version>
-    <plugin.release.version>3.1.1</plugin.release.version>
+    <plugin.antrun.version>3.2.0</plugin.antrun.version>
+    <plugin.assembly.version>3.8.0</plugin.assembly.version>
+    <plugin.dependency.version>3.11.0</plugin.dependency.version>
+    <plugin.enforcer.version>3.6.3</plugin.enforcer.version>
+    <plugin.gpg.version>3.2.8</plugin.gpg.version>
+    <plugin.central-publishing.version>0.11.0</plugin.central-publishing.version>
+    <plugin.plugin.version>3.15.2</plugin.plugin.version>
+    <plugin.release.version>3.3.1</plugin.release.version>
     <plugin.checkstyle.version>3.6.0</plugin.checkstyle.version>
-    <plugin.spotbugs.version>4.9.8.3</plugin.spotbugs.version>
+    <plugin.spotbugs.version>4.10.2.0</plugin.spotbugs.version>
 
     <plugin.jacoco.version>0.8.12</plugin.jacoco.version>
-    <plugin.nexus.staging.version>1.6.12</plugin.nexus.staging.version>
-    <plugin.spring.boot.version>3.5.6</plugin.spring.boot.version>
+    <plugin.nexus.staging.version>1.7.0</plugin.nexus.staging.version>
+    <plugin.spring.boot.version>3.5.15</plugin.spring.boot.version>
     <plugin.maven.project.reports.version>3.9.0</plugin.maven.project.reports.version>
   </properties>
 
